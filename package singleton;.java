@@ -1,0 +1,31 @@
+package singleton;
+
+public class Singleton {
+	private static Singleton uniqueInstance;
+ 
+	// other useful instance variables here
+ 
+	private Singleton() {}
+ 
+	public static synchronized Singleton getInstance() {
+		if (uniqueInstance == null) {
+			uniqueInstance = new Singleton();
+		}
+		return uniqueInstance;
+	}
+ 
+	// other useful methods here
+	public String getDescription() {
+		return "I'm a thread safe Singleton!";
+	}
+}
+
+
+
+package singleton;
+public class SingletonClient {
+	public static void main(String[] args) {
+		Singleton singleton = Singleton.getInstance();
+		System.out.println(singleton.getDescription());
+	}
+}
